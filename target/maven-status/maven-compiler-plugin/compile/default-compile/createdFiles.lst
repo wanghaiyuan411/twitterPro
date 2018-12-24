@@ -1,0 +1,5 @@
+com\hy\user\service\impl\UserServiceImpl.class
+com\hy\user\controller\UserController.class
+com\hy\user\mapper\UserMapper.class
+com\hy\user\service\UserService.class
+com\hy\common\entity\User.class
