@@ -1,9 +1,9 @@
 package com.hy.user.mapper;
 
 import com.hy.common.entity.User;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-@Service
-public interface UserMapper {
+@Component
+public interface UserMapper{
     User selectUserById(int userid);
 }
