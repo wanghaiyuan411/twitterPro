@@ -8,10 +8,10 @@
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+    <!--jackson 生效 ，response返回json -->
     <context:annotation-config/>
-
     <mvc:annotation-driven/>
-
+    <!--数据源 暂时用spring原生数据源 非连接池-->
     <bean id="dataSource"
       class="org.springframework.jdbc.datasource.DriverManagerDataSource">
     <property name="driverClassName" value="com.mysql.jdbc.Driver" />

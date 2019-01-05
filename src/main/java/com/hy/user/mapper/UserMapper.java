@@ -1,9 +1,8 @@
 package com.hy.user.mapper;
 
 
-import com.hy.user.entity.User;
+import com.hy.common.entity.User;
 
-//@Component
 public interface UserMapper{
     User selectUserById(int userid);
 }

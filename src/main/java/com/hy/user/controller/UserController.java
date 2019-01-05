@@ -1,7 +1,6 @@
 package com.hy.user.controller;
 
-import com.alibaba.fastjson.JSON;
-import com.hy.user.entity.User;
+import com.hy.common.entity.User;
 import com.hy.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

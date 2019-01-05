@@ -1,6 +1,6 @@
 package com.hy.user.service.impl;
 
-import com.hy.user.entity.User;
+import com.hy.common.entity.User;
 import com.hy.user.mapper.UserMapper;
 import com.hy.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +12,5 @@ public class UserServiceImpl implements UserService{
     public User getUserById(int userid) {
         User user = userMapper.selectUserById(userid);
         return user;
-        //return null;
     }
 }

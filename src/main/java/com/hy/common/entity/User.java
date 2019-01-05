@@ -1,4 +1,3 @@
-/*
 package com.hy.common.entity;
 
 public class User {
@@ -10,14 +9,16 @@ public class User {
         this.username = username;
         this.password = password;
     }
+    public User(){}
 
-    public long getUserid() {
+
+    /*public long getUserid() {
         return userid;
     }
 
     public void setUserid(long userid) {
         this.userid = userid;
-    }
+    }*/
 
     public String getUsername() {
         return username;
@@ -35,4 +36,3 @@ public class User {
         this.password = password;
     }
 }
-*/
