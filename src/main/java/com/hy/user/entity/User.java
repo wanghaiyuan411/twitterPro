@@ -12,13 +12,13 @@ public class User {
     public User(){}
 
 
-    public long getUserid() {
+    /*public long getUserid() {
         return userid;
     }
 
     public void setUserid(long userid) {
         this.userid = userid;
-    }
+    }*/
 
     public String getUsername() {
         return username;
