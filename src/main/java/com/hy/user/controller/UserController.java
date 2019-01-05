@@ -1,9 +1,10 @@
 package com.hy.user.controller;
 
-import com.hy.common.entity.User;
-import com.hy.user.service.UserService;
+import com.hy.service.entity.User;
+import com.hy.service.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -23,13 +24,12 @@ public class UserController {
         //TODO HttpServletRequest
         System.out.print(1122);
         User user = userService.getUserById(userid);
-        /*try {
-            response.getWriter().write(JSON.toJSONString(user));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
-        //response(response);
         return user;
+    }
+    @ResponseBody
+    @RequestMapping(value = "add", method = RequestMethod.POST)
+    public void addUser(HttpServletRequest httpservletRequest,@RequestBody User user){
+        userService.insertUser(user);
     }
     private void response(HttpServletResponse response) {
         StringBuffer stringBuffer = new StringBuffer("<html>");

@@ -1,4 +1,4 @@
-package com.hy.common.entity;
+package com.hy.service.entity;
 
 public class User {
     private long userid;
