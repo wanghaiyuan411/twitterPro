@@ -1,5 +1,7 @@
 package com.hy.user.controller;
 
+import com.hy.common.model.RespBase;
+import com.hy.common.model.RespGetUser;
 import com.hy.service.entity.User;
 import com.hy.service.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,16 +22,20 @@ public class UserController {
 
     @ResponseBody
     @RequestMapping(value = "/getById", method = RequestMethod.GET)
-    public User getUserInfo(HttpServletRequest httpservletRequest, HttpServletResponse response, int userid){
+    public RespGetUser getUserInfo(HttpServletRequest httpservletRequest, HttpServletResponse response, int userid){
         //TODO HttpServletRequest
         System.out.print(1122);
         User user = userService.getUserById(userid);
-        return user;
+        RespGetUser getUserModel = new RespGetUser();
+        getUserModel.setUser(user);
+        return getUserModel;
     }
     @ResponseBody
     @RequestMapping(value = "add", method = RequestMethod.POST)
-    public void addUser(HttpServletRequest httpservletRequest,@RequestBody User user){
+    public RespBase addUser(HttpServletRequest httpservletRequest, @RequestBody User user){
         userService.insertUser(user);
+        RespBase respBase = new RespBase();
+        return respBase;
     }
     private void response(HttpServletResponse response) {
         StringBuffer stringBuffer = new StringBuffer("<html>");
