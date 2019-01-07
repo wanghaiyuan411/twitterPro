@@ -30,12 +30,12 @@ public class UserController {
         getUserModel.setUser(user);
         return getUserModel;
     }
-    @ResponseBody
-    @RequestMapping(value = "add", method = RequestMethod.POST)
-    public RespBase addUser(HttpServletRequest httpservletRequest, @RequestBody User user){
+    //@ResponseBody
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    public String addUser(HttpServletRequest httpservletRequest, User user){
         userService.insertUser(user);
         RespBase respBase = new RespBase();
-        return respBase;
+        return "redirect:/register.jsp";
     }
     private void response(HttpServletResponse response) {
         StringBuffer stringBuffer = new StringBuffer("<html>");

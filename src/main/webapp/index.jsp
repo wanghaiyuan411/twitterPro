@@ -30,7 +30,7 @@
             <h2 class="text-center">登录</h2>
 
 
-            <form id="loginForm" method="post">
+            <form id="loginForm" method="post" action="/user/register">
                 <div class="dataform" >
                     <div class="input-warp gap">
                         <span class="input-icon iconfont icon-yonghu1"></span>
@@ -51,7 +51,7 @@
                     <div class="btn-warp gap">
                         <div class="text-center">
                             <input type="hidden" value="jsform" id="_app"/>
-                            <button type="submit" id="btnLogin" class="btn btn-block lgbtn blue">登录</button>
+                            <button type="submit" id="btnLogin" class="btn btn-block lgbtn blue" >登录</button>
                         </div>
                     </div>
                     <div class="gap">
@@ -85,4 +85,19 @@
 
 </body>
 </html>
+<script type="text/javascript">
+    function save(){
+        alert("123");
+        $.ajax({
+        type: "POST",
+        url: "http://localhost:8080/user/register",
+        data: $("#loginForm").serialize(),
+        dataType: "json",
+        success: function (result) {
+            alert("Register success!");
+        }
+        });
+    }
+
+</script>
 
