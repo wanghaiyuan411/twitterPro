@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: wanghaiyuan
   Date: 2019/1/7
-  Time: 14:44
+  Time: 17:33
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page language="java" pageEncoding="UTF-8" %>
@@ -10,53 +10,79 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Welcome to twitter</title>
-    <link rel="stylesheet" type="text/css" href="css/dmaku.css" />
-    <script src="js/jquery.min.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>welcome to t=ier</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/a3common.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/font_43459_lbtux0zjkr6yldi.css">
 </head>
 <body>
+<div id="main" class="main-warp">
+    <div class="main-content">
+        <div class="formDiv">
 
-<div class="wrap flex-c-c">
-    <form action="" method="" class="flex-c-c">
-        <ul class="select__list">
-            <li id="js-usr-rtn" class="select__label">登录</li>
-            <li id="js-usr-new" class="select__label select__label--active">注册</li>
-            <li id="js-usr-rst" class="select__label">忘记密码</li>
-        </ul>
-        <span class="pointer"></span>
-        <input type="email" placeholder="用户名" class="ui-field" id="js-field__email" />
-        <input type="password" placeholder="密码" class="ui-field" id="js-field__pass" />
-        <input type="password" placeholder="确认密码" class="ui-field" id="js-field__r-pass" />
-        <button id="js-btn" class="ui-button --usr-new"></button>
-    </form>
+            <h2 class="text-center">登录</h2>
+
+
+            <form id="loginForm" method="post">
+                <div class="dataform" >
+                    <div class="input-warp gap">
+                        <span class="input-icon iconfont icon-yonghu1"></span>
+                        <input id="userName" name="username" type="text" class="inputs" placeholder="手机号码或邮箱" maxlength="64">
+                    </div>
+                    <div class="error-content">
+                        <span id="userNameErr" class="errMsg"></span>
+                    </div>
+
+                    <div class="input-warp gap">
+                        <span class="input-icon iconfont icon-baomi"></span>
+                        <input class="inputs" type="password" name="password" placeholder="密码" id="pwd" maxlength="20">
+                    </div>
+                    <div class="error-content">
+                        <span id="passwordErr" class="errMsg"></span>
+                    </div>
+
+                    <div class="btn-warp gap">
+                        <div class="text-center">
+                            <input type="hidden" value="jsform" id="_app"/>
+                            <button type="submit" id="btnLogin" class="btn btn-block lgbtn blue">登录</button>
+                        </div>
+                    </div>
+                    <div class="gap">
+
+                        <div class="pull-right" style="margin-top: 6px"><a href="javascript:;" class="link">忘记密码</a><span class="split-space">|</span><a href="register.jsp" class="link">新用户注册</a></div>
+
+                        <div class="pretty-box">
+                            <input type="checkbox" value="1" name="REMEMBER" id="remember" class="">
+                            <label for="remember" style="font-weight: normal" >记住我</label>
+                        </div>
+                    </div>
+
+
+                    <div class="biggap third-party-title">
+                        <h5 class="text-center"><span>第三方账号登录</span></h5>
+                    </div>
+                    <div class="third-auth">
+
+                        <a title="用钉钉登录" class="dt" href="javascript:;"></a>
+                        <a title="用微信账户登录" class="wx" href="javascript:;"></a>
+                        <a title="用QQ账户登录" class="qq" href="javascript:;"></a>
+
+                    </div>
+
+                </div>
+            </form>
+
+        </div>
+    </div>
 </div>
 
-<script>
-//to-do. dry-up & remove jq
-$('.select__label').click(function() {
-  $('.select__label').removeClass('select__label--active');
-  $(this).addClass('select__label--active');
-});
-
-$('#js-usr-rtn').click(function() {
-  $('#js-btn, .pointer, #js-field__pass').removeClass('--usr-new --usr-rst ui-field--hidden');
-  $('#js-btn, .pointer').addClass('--usr-rtn');
-  $('#js-field__r-pass').addClass('ui-field--hidden');
-});
-$('#js-usr-new').click(function() {
-  $('#js-btn, .pointer, #js-field__r-pass, #js-field__pass').removeClass('--usr-rtn --usr-rst ui-field--hidden');
-  $('#js-btn').addClass('--usr-new');
-});
-$('#js-usr-rst').click(function() {
-  $('#js-btn, .pointer').removeClass('--usr-rtn --usr-new');
-  $('#js-btn, .pointer').addClass('--usr-rst');
-  $('#js-field__r-pass, #js-field__pass').addClass('ui-field--hidden');
-});
-</script>
 </body>
 </html>
 
