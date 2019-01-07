@@ -1,59 +1,57 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+﻿<!doctype html>
+<html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Welcome to - Twitter</title>
-	<link href="css/dmaku.css" type="text/css"  rel="stylesheet" />
-	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<meta charset="utf-8">
+	<title>Welcome to twitter</title>
+	<link rel="stylesheet" type="text/css" href="css/dmaku.css" />
+	<script src="js/jquery.min.js"></script>
 </head>
 <!--/************************************************************
  *																*
- * 						      代码库							*
- *                        www.dmaku.com							*
+ * 						      登陆注册							*
+ *                        www.twitter.com							*
  *       		  努力创建完善、持续更新插件以及模板			*
  * 																*
 **************************************************************-->
 <body>
-<div class="flash4" style="margin-top: 50px">
-	<ul>
-    	<li class="first">
-        	<div class="imgTop"><img src="images/ruili_img1.jpg" width="538" height="405"  alt="" class="tm"></div>
-            <div class="imgCen">发现有趣的 Ta 和 你</div>
-            <div class="imgBot"><a href=""><p class="bt_1">注册</p><p class="bt_2"><span>登录</span><span>双旦来轰趴</span><span>虚位以待</span></p></a></div>
-        </li>
-        <li>
-        	<div class="imgTop"><img src="images/ruili_img2.jpg" width="538" height="405"  alt=""></div>
-            <div class="imgCen">分享你的一切 给我</div>
-            <div class="imgBot"><a href=""><p class="bt_1">推文</p><p class="bt_2"><span>Life</span><span>Work</span><span>Jurnery</span></p></a></div>
-        </li>
-        <!--<li>
-        	<div class="imgTop"><img src="images/ruili_img3.jpg" width="538" height="405"  alt=""></div>
-            <div class="imgCen">瑞丽·妆 线上精品轻杂志</div>
-            <div class="imgBot"><a href=""><p class="bt_1">服饰</p><p class="bt_2"><span>封面明星故事</span><span>2015春夏趋势</span><span>我爱海淘</span></p></a></div>
-        </li>
-        <li>
-        	<div class="imgTop"><img src="images/ruili_img4.jpg" width="538" height="405"  alt=""></div>
-            <div class="imgCen">《ar》刘海造型 女孩只需这样即刻焕然一新</div>
-            <div class="imgBot"><a href=""><p class="bt_1">服饰</p><p class="bt_2"><span>封面明星故事</span><span>2015春夏趋势</span><span>我爱海淘</span></p></a></div>
-        </li>
-        <li>
-        	<div class="imgTop"><img src="images/ruili_img5.jpg" width="538" height="405"  alt=""></div>
-            <div class="imgCen">电影×大明星 见证传奇从戛纳诞生</div>
-            <div class="imgBot"><a href=""><p class="bt_1">服饰</p><p class="bt_2"><span>封面明星故事</span><span>2015春夏趋势</span><span>我爱海淘</span></p></a></div>
-        </li>
-        <li>
-        	<div class="imgTop"><img src="images/ruili_img6.jpg" width="538" height="405"  alt=""></div>
-            <div class="imgCen">重返20岁试用周</div>
-            <div class="imgBot"><a href=""><p class="bt_1">服饰</p><p class="bt_2"><span>封面明星故事</span><span>2015春夏趋势</span><span>我爱海淘</span></p></a></div>
-        </li>
-        <li class="fast">
-        	<div class="imgTop"><img src="images/ruili_img7.jpg" width="538" height="405"  alt=""></div>
-            <div class="imgCen">玩美女孩盖天天 阳光女神进阶攻略</div>
-            <div class="imgBot"><a href=""><p class="bt_1">服饰</p><p class="bt_2"><span>封面明星故事</span><span>2015春夏趋势</span><span>我爱海淘</span></p></a></div>
-        </li>-->
-    </ul>	
-</div>
-<script src="js/dmaku.js" type="text/javascript"></script>
 
+<div class="wrap flex-c-c">
+  <form action="" method="" class="flex-c-c">
+    <ul class="select__list">
+      <li id="js-usr-rtn" class="select__label">登录</li>
+      <li id="js-usr-new" class="select__label select__label--active">注册</li>
+      <li id="js-usr-rst" class="select__label">忘记密码</li>
+    </ul>
+    <span class="pointer"></span>
+    <input type="email" placeholder="用户名" class="ui-field" id="js-field__email" />
+    <input type="password" placeholder="密码" class="ui-field" id="js-field__pass" />
+    <input type="password" placeholder="确认密码" class="ui-field" id="js-field__r-pass" />
+    <button id="js-btn" class="ui-button --usr-new"></button>
+  </form>
+</div>
+
+<script>
+//to-do. dry-up & remove jq
+$('.select__label').click(function() {
+  $('.select__label').removeClass('select__label--active');
+  $(this).addClass('select__label--active');
+});
+
+$('#js-usr-rtn').click(function() {
+  $('#js-btn, .pointer, #js-field__pass').removeClass('--usr-new --usr-rst ui-field--hidden');
+  $('#js-btn, .pointer').addClass('--usr-rtn');
+  $('#js-field__r-pass').addClass('ui-field--hidden');
+});
+$('#js-usr-new').click(function() {
+  $('#js-btn, .pointer, #js-field__r-pass, #js-field__pass').removeClass('--usr-rtn --usr-rst ui-field--hidden');
+  $('#js-btn').addClass('--usr-new');
+});
+$('#js-usr-rst').click(function() {
+  $('#js-btn, .pointer').removeClass('--usr-rtn --usr-new');
+  $('#js-btn, .pointer').addClass('--usr-rst');
+  $('#js-field__r-pass, #js-field__pass').addClass('ui-field--hidden');
+});
+</script>
 </body>
 </html>
+
