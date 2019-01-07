@@ -88,7 +88,7 @@
                 </div>
                 <div class="agreement gap">
                     <div class="text-right">
-                        <div class="pull-left">已有账号，<a href="index.html" class="link">登录</a></div><p>注册即代表您已阅读并同意《<a href="javascript:;" target="_blank" class="link">使用协议</a>》</p>
+                        <div class="pull-left">已有账号，<a href="index.jsp" class="link">登录</a></div><p>注册即代表您已阅读并同意《<a href="javascript:;" target="_blank" class="link">使用协议</a>》</p>
                     </div>
                 </div>
             </form>
