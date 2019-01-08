@@ -37,13 +37,5 @@ public class UserController {
         RespBase respBase = new RespBase();
         return "redirect:/register.jsp";
     }
-    private void response(HttpServletResponse response) {
-        StringBuffer stringBuffer = new StringBuffer("<html>");
-        stringBuffer.append("Error page").append("</html>");
-        try {
-            response.getWriter().write(stringBuffer.toString());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+
 }
