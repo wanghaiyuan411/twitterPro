@@ -25,9 +25,16 @@
         <!--<property name="typeAliasesPackage" value="main.src.com.hy.servicee.entity"/>-->
        <!--除了这个value都是不能改的  value代表实体类的全路径-->
         <!--通配符的方式告知mapper映射文件的位置-->
-        <property name="mapperLocations" value="classpath*:/com/hy/user/mapper/xml/*.xml"/>
+        <property name="mapperLocations">
+            <array>
+                <value>classpath*:/com/hy/user/mapper/xml/*.xml</value>
+                <value>classpath*:/com/hy/twitter/mapper/xml/*.xml</value>
+            </array>
+        </property>
+        <!--<property name="mapperLocations" value="classpath*:/com/hy/user/mapper/xml/*.xml" />-->
     </bean>
     <mybatis-spring:scan base-package="com.hy.user.mapper"/>
+    <mybatis-spring:scan base-package="com.hy.twitter.mapper"/>
     <context:component-scan base-package="com.hy.*"/>
 </beans>
 

@@ -1,7 +1,7 @@
 package com.hy.service.entity;
 
 public class User {
-    private long userid;
+    private Long userid;
     private String username;
     private String password;
 
@@ -12,13 +12,13 @@ public class User {
     public User(){}
 
 
-    /*public long getUserid() {
+    public Long getUserid() {
         return userid;
     }
 
-    public void setUserid(long userid) {
+    public void setUserid(Long userid) {
         this.userid = userid;
-    }*/
+    }
 
     public String getUsername() {
         return username;

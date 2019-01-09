@@ -4,6 +4,7 @@ import org.apache.commons.lang.StringUtils;
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,7 +15,7 @@ import java.util.List;
  * Date 2019/1/8 17:04.
  */
 public class SessionFilter implements Filter {
-    private static final List<String> NOT_FILTERS = new ArrayList<String>(Arrays.asList("/index.jsp","/register.jsp"));
+    private static final List<String> NOT_FILTERS = new ArrayList<String>(Arrays.asList("/index.jsp","/register.jsp","/user/login"));
     public void init(FilterConfig filterConfig) throws ServletException {
 
     }
@@ -24,6 +25,15 @@ public class SessionFilter implements Filter {
         String servletPath = httpServletRequest.getServletPath();
         if (isNotFilterUrl(servletPath)){
             chain.doFilter(request, response);
+            return;
+        }
+        HttpSession session = httpServletRequest.getSession();
+        if (session != null){
+            Object obj = session.getAttribute("userSession");
+            if (obj != null){
+                chain.doFilter(request, response);
+                return;
+            }
         }
         System.out.println("this is a filter...");
         response((HttpServletResponse) response);
@@ -39,6 +49,9 @@ public class SessionFilter implements Filter {
             isNotFilterUrl = true;
         }
         if (NOT_FILTERS.contains(servletUri)){
+            isNotFilterUrl = true;
+        }
+        if (servletUri.contains(".css") || servletUri.contains(".js") || servletUri.contains(".png")){
             isNotFilterUrl = true;
         }
         return isNotFilterUrl;
