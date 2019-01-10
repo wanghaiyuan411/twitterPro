@@ -6,6 +6,7 @@ import com.hy.service.entity.Twitter;
 import com.hy.service.entity.User;
 import com.hy.service.service.TwitterService;
 import com.hy.service.service.UserService;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -43,18 +44,21 @@ public class UserController {
     }
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     public String login(HttpServletRequest request, User user, ModelMap modelMap){
-        String username = user.getUsername();
-        if (username.equals("haiyuan")){
-            user.setUserid(1L);
-        }
-        if (username.equals("Tom")){
-            user.setUserid(6L);
-        }
 
+        String username = user.getUsername();
+        String password = user.getPassword();
+        if (StringUtils.isEmpty(username) || StringUtils.isEmpty(password)){
+            return "/";
+        }
+        user = userService.loginUser(user);
+        if (user == null){
+            return "/";
+        }
+        if (user.getUserid() == null){
+            return "/";
+        }
         List<Twitter> list = twitterService.getTwittersByUser(user);
         modelMap.put("pageInfo", list);
-        //判断user是否存在
-        //判断密码是否正确
         System.out.println("user = " + user.getUsername() +", "+user.getPassword());
         HttpSession session = request.getSession();
         session.setAttribute("userSession", user);

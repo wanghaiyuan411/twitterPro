@@ -10,11 +10,15 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
     public User getUserById(int userid) {
-        User user = userMapper.selectUserById(userid);
+        User user = userMapper.selectById(userid);
         return user;
     }
 
     public void insertUser(User user) {
         userMapper.insertUser(user);
+    }
+
+    public User loginUser(User user) {
+        return userMapper.checkByUser(user);
     }
 }

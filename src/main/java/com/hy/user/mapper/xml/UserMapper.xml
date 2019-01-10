@@ -3,10 +3,27 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hy.user.mapper.UserMapper">
     <!--  查询单条记录  -->
-    <select id="selectUserById" parameterType="int" resultType="com.hy.service.entity.User">
+    <select id="selectById" parameterType="int" resultType="com.hy.service.entity.User">
         select * from user where id = #{userid}
+    </select>
+    <select id="selectByUser" parameterType="com.hy.service.entity.User" resultType="com.hy.service.entity.User">
+        select * from user
+        <where>
+            <if test="username != null">
+                username = #{username}
+            </if>
+            <if test="password != null">
+                password = #{password}
+            </if>
+        </where>
     </select>
     <insert id="insertUser" parameterType="com.hy.service.entity.User">
         INSERT into user(username, password) values (#{username}, #{password})
     </insert>
+    <!--根据用户名和密码获取用户 用于登陆 -->
+    <select id="checkByUser" parameterType="com.hy.service.entity.User" resultType="com.hy.service.entity.User">
+        select id as userid,
+        username,
+        password from user where username = #{username} and password = #{password}
+    </select>
 </mapper>
