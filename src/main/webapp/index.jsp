@@ -17,10 +17,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
     <title>welcome to t=ier</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/a3common.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/login.css">
-    <link rel="stylesheet" href="css/font_43459_lbtux0zjkr6yldi.css">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/a3common.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/font_43459_lbtux0zjkr6yldi.css">
 </head>
 <body>
 <div id="main" class="main-warp">

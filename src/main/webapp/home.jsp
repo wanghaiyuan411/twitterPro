@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Wrlcome to Twitter</title>
 </head>
 <body>
 <div id="main" class="main-warp">

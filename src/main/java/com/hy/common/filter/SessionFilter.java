@@ -23,6 +23,7 @@ public class SessionFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest httpServletRequest = (HttpServletRequest)request;
         String servletPath = httpServletRequest.getServletPath();
+        System.out.println("servletPath = " + servletPath);
         if (isNotFilterUrl(servletPath)){
             chain.doFilter(request, response);
             return;
@@ -51,7 +52,7 @@ public class SessionFilter implements Filter {
         if (NOT_FILTERS.contains(servletUri)){
             isNotFilterUrl = true;
         }
-        if (servletUri.contains(".css") || servletUri.contains(".js") || servletUri.contains(".png")){
+        if (servletUri.contains(".css") || servletUri.contains(".js") || servletUri.contains(".png") || servletUri.contains(".html")){
             isNotFilterUrl = true;
         }
         return isNotFilterUrl;
