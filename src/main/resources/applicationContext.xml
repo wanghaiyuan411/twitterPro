@@ -13,11 +13,16 @@
     <mvc:annotation-driven/>
     <!--数据源 暂时用spring原生数据源 非连接池-->
     <bean id="dataSource"
-      class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+      class="com.alibaba.druid.pool.DruidDataSource" init-method="init">
     <property name="driverClassName" value="com.mysql.jdbc.Driver" />
     <property name="url" value="jdbc:mysql://192.144.136.141:3306/twitter" />
     <property name="username" value="root" />
     <property name="password" value="123456" />
+        <property name="initialSize" value="2"/>
+        <!-- 最大并发连接数 -->
+        <property name="maxActive" value="5"/>
+        <!-- 配置获取连接等待超时的时间 -->
+        <property name="maxWait" value="1000"/>
     </bean>
     <!--mybatis 的核心配置转移到这里来  mybatis的配置文件不需要了-->
     <bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
