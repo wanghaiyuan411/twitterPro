@@ -32,6 +32,7 @@
 
             <form id="loginForm" method="post" action="/user/login">
                 <div class="dataform" >
+
                     <div class="input-warp gap">
                         <span class="input-icon iconfont icon-yonghu1"></span>
                         <input id="userName" name="username" type="text" class="inputs" placeholder="手机号码或邮箱" maxlength="64">
