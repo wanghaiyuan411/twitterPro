@@ -4,6 +4,7 @@ import com.hy.common.model.RespBase;
 import com.hy.common.model.RespGetUser;
 import com.hy.service.entity.Twitter;
 import com.hy.service.entity.User;
+import com.hy.service.service.RedisService;
 import com.hy.service.service.TwitterService;
 import com.hy.service.service.UserService;
 import org.apache.commons.lang.StringUtils;
@@ -25,6 +26,8 @@ public class UserController {
     private UserService userService;
     @Autowired
     private TwitterService twitterService;
+    @Autowired
+    private RedisService redisService;
 
     @ResponseBody
     @RequestMapping(value = "/getById", method = RequestMethod.GET)
@@ -44,7 +47,7 @@ public class UserController {
     }
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     public String login(HttpServletRequest request, User user, ModelMap modelMap){
-
+        Long result = redisService.hSet("user", "id_2", "Hardon");
         String username = user.getUsername();
         String password = user.getPassword();
         if (StringUtils.isEmpty(username) || StringUtils.isEmpty(password)){

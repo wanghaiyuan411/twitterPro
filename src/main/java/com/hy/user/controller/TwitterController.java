@@ -3,6 +3,7 @@ package com.hy.user.controller;
 import com.hy.common.model.RespGetTwitter;
 import com.hy.service.entity.Twitter;
 import com.hy.service.entity.User;
+import com.hy.service.service.RedisService;
 import com.hy.service.service.TwitterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,10 +18,13 @@ import java.util.List;
 public class TwitterController {
     @Autowired
     private TwitterService twitterService;
+    @Autowired
+    private RedisService redisService;
 
     @ResponseBody
     @RequestMapping(value = "/getTwitters", method = RequestMethod.POST)
     public RespGetTwitter getTwitters(User user){
+        Long result = redisService.hSet("user", "2_id", "Tom son");
         List<Twitter> list = twitterService.getTwittersByUser(user);
         RespGetTwitter respGetTwitter = new RespGetTwitter();
         respGetTwitter.setTwitters(list);
