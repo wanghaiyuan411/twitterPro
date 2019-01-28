@@ -8,6 +8,8 @@ import com.hy.service.service.RedisService;
 import com.hy.service.service.TwitterService;
 import com.hy.service.service.UserService;
 import org.apache.commons.lang.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -28,7 +30,7 @@ public class UserController {
     private TwitterService twitterService;
     @Autowired
     private RedisService redisService;
-
+    private static Logger LOGGER = LoggerFactory.getLogger(UserController.class);
     @ResponseBody
     @RequestMapping(value = "/getById", method = RequestMethod.GET)
     public RespGetUser getUserInfo(HttpServletRequest httpservletRequest, HttpServletResponse response, int userid){
@@ -48,6 +50,8 @@ public class UserController {
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     public String login(HttpServletRequest request, User user, ModelMap modelMap){
         Long result = redisService.hSet("user", "id_2", "Hardon");
+        LOGGER.info("Result = {}", result);
+        LOGGER.error("sfdasgfas");
         String username = user.getUsername();
         String password = user.getPassword();
         if (StringUtils.isEmpty(username) || StringUtils.isEmpty(password)){
