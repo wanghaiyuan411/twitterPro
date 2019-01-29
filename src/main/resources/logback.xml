@@ -1,4 +1,3 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- 设置debug="false"来输出logback status info -->
 <configuration debug="true" scan="true">
@@ -8,8 +7,8 @@
     <property name="default.dir" value="/default" />
     <property name="base.dir" value="/base" />
     <property name="web.dir" value="/web" />
-    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-        <!-- encoder 默认配置为PatternLayoutEncoder -->
+    <!--<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        &lt;!&ndash; encoder 默认配置为PatternLayoutEncoder &ndash;&gt;
         <encoder>
             <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
@@ -17,9 +16,9 @@
 
     <root level="INFO">
         <appender-ref ref="STDOUT" />
-    </root>
+    </root>-->
     <!-- 日志输出到控制台 -->
-    <!--<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoding>UTF-8</encoding>
         <layout class="ch.qos.logback.classic.PatternLayout">
             <pattern>${default_pattern}</pattern>
@@ -27,9 +26,9 @@
     </appender>
     <root level="INFO">
         <appender-ref ref="STDOUT" />
-    </root>-->
-    <!-- 根据rollingPolicy将日志打到相应的文件中 -->
-   <!-- <appender name="FILE-ERROR"
+    </root>
+    <!--根据rollingPolicy将日志打到相应的文件中-->
+    <appender name="FILE-ERROR"
               class="ch.qos.logback.core.rolling.RollingFileAppender">
         <encoding>UTF-8</encoding>
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
@@ -115,7 +114,7 @@
         <appender-ref ref="STDOUT" />
     </logger>
 
-    <logger name="com.hy.user">
+    <!--<logger name="com.hy.user">
         <level value="INFO" />
         <appender-ref ref="${log.appender:-BASE-FILE}" />
         <appender-ref ref="${log.appender:-FILE-ERROR}" />
@@ -126,7 +125,7 @@
         <level value="DEBUG" />
         <appender-ref ref="${log.appender:-WEB-FILE}" />
         <appender-ref ref="${log.appender:-FILE-ERROR}" />
-    </logger>
+    </logger>-->
 
     <logger name="org.mybatis">
         <level value="INFO" />
@@ -141,5 +140,5 @@
         <appender-ref ref="STDOUT" />
         <appender-ref ref="${log.appender:-FILE}" />
         <appender-ref ref="${log.appender:-FILE-ERROR}" />
-    </root>-->
+    </root>
 </configuration>

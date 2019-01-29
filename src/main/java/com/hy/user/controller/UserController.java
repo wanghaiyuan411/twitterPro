@@ -49,7 +49,7 @@ public class UserController {
     }
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     public String login(HttpServletRequest request, User user, ModelMap modelMap){
-        Long result = redisService.hSet("user", "id_2", "Hardon");
+        Long result = redisService.hSet("user", "id_2", "James Hardon");
         LOGGER.info("Result = {}", result);
         LOGGER.error("sfdasgfas");
         String username = user.getUsername();
