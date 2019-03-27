@@ -50,4 +50,25 @@
         <error-code>404</error-code>
         <location>/404.html</location>
     </error-page>
+    <security-constraint>
+            <web-resource-collection>
+            <web-resource-name>OPENSSL</web-resource-name>
+            <url-pattern>/*</url-pattern>
+            </web-resource-collection>
+            <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+            </user-data-constraint>
+    </security-constraint>
+    <!--禁用tomcat不安全的http方法 -->
+    <security-constraint>
+            <web-resource-collection>
+                <url-pattern>/*</url-pattern>
+                <http-method>PUT</http-method>
+                <http-method>DELETE</http-method>
+                <http-method>HEAD</http-method>
+                <http-method>OPTIONS</http-method>
+                <http-method>TRACE</http-method>
+            </web-resource-collection>
+            <auth-constraint></auth-constraint>
+    </security-constraint>
 </web-app>
