@@ -52,7 +52,7 @@ public class SessionFilter implements Filter {
         if (NOT_FILTERS.contains(servletUri)){
             isNotFilterUrl = true;
         }
-        if (servletUri.contains(".css") || servletUri.contains(".js") || servletUri.contains(".png") || servletUri.contains(".html")){
+        if (servletUri.contains(".css") || servletUri.contains(".js") || servletUri.contains(".png") || servletUri.contains(".html") || servletUri.equals("/user/getById")){
             isNotFilterUrl = true;
         }
         return isNotFilterUrl;

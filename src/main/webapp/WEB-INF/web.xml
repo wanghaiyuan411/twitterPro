@@ -50,7 +50,7 @@
         <error-code>404</error-code>
         <location>/404.html</location>
     </error-page>
-    <security-constraint>
+    <!--<security-constraint>
             <web-resource-collection>
             <web-resource-name>OPENSSL</web-resource-name>
             <url-pattern>/*</url-pattern>
@@ -59,7 +59,7 @@
             <transport-guarantee>CONFIDENTIAL</transport-guarantee>
             </user-data-constraint>
     </security-constraint>
-    <!--禁用tomcat不安全的http方法 -->
+    &lt;!&ndash;禁用tomcat不安全的http方法 &ndash;&gt;
     <security-constraint>
             <web-resource-collection>
                 <url-pattern>/*</url-pattern>
@@ -70,5 +70,15 @@
                 <http-method>TRACE</http-method>
             </web-resource-collection>
             <auth-constraint></auth-constraint>
-    </security-constraint>
+    </security-constraint>-->
+    <!--<security-constraint>
+        <web-resource-collection >
+            <web-resource-name >SSL</web-resource-name>
+            <url-pattern>/*</url-pattern>
+        </web-resource-collection>
+
+        <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>-->
 </web-app>
