@@ -4,13 +4,13 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
 public class DynamicSubject implements InvocationHandler{
-    private Object subject;
+    private Object subject1;
     public DynamicSubject(Subject subject){
-        this.subject = subject;
+        this.subject1 = subject;
     }
-    public Object invoke(Object object, Method method, Object[] args) throws Exception {
+    public Object invoke(Object subject, Method method, Object[] args) throws Exception {
         System.out.println("Before rent, open transaction");
-        method.invoke(object, args);
+        method.invoke(subject1, args);
         System.out.println("After rent, close transaction");
         return null;
     }
